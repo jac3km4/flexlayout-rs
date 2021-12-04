@@ -1,0 +1,3 @@
+[submodule "cdeps/FlexLayout"]
+	path = cdeps/FlexLayout
+	url = https://github.com/Sleen/FlexLayout.git
