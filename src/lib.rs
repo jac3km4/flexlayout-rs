@@ -70,6 +70,7 @@ impl<A> Node<A> {
                 FlexProperty::PaddingTop(val) => ffi::Flex_setPaddingTop(self.ptr, val),
                 FlexProperty::PaddingBottom(val) => ffi::Flex_setPaddingBottom(self.ptr, val),
                 FlexProperty::PaddingRight(val) => ffi::Flex_setPaddingRight(self.ptr, val),
+                FlexProperty::Fixed(val) => ffi::Flex_setFixed(self.ptr, val),
             }
         }
     }
@@ -156,7 +157,7 @@ impl<'a, A> NodeWithLayout<'a, A> {
     }
 }
 
-#[derive(Debug, Clone, Copy)]
+#[derive(Debug, Clone, Copy, PartialEq, Eq)]
 pub enum FlexDirection {
     Row,
     Column,
@@ -175,7 +176,7 @@ impl From<FlexDirection> for i32 {
     }
 }
 
-#[derive(Debug, Clone, Copy)]
+#[derive(Debug, Clone, Copy, PartialEq, Eq)]
 pub enum FlexWrap {
     NoWrap,
     Wrap,
@@ -192,7 +193,7 @@ impl From<FlexWrap> for i32 {
     }
 }
 
-#[derive(Debug, Clone, Copy)]
+#[derive(Debug, Clone, Copy, PartialEq, Eq)]
 pub enum FlexAlign {
     Inherit,
     Stretch,
@@ -250,4 +251,5 @@ pub enum FlexProperty {
     PaddingTop(f32),
     PaddingBottom(f32),
     PaddingRight(f32),
+    Fixed(bool),
 }
