@@ -156,7 +156,7 @@ impl<'a, A> NodeWithLayout<'a, A> {
     }
 }
 
-#[derive(Debug)]
+#[derive(Debug, Clone, Copy)]
 pub enum FlexDirection {
     Row,
     Column,
@@ -175,7 +175,7 @@ impl From<FlexDirection> for i32 {
     }
 }
 
-#[derive(Debug)]
+#[derive(Debug, Clone, Copy)]
 pub enum FlexWrap {
     NoWrap,
     Wrap,
@@ -192,7 +192,7 @@ impl From<FlexWrap> for i32 {
     }
 }
 
-#[derive(Debug)]
+#[derive(Debug, Clone, Copy)]
 pub enum FlexAlign {
     Inherit,
     Stretch,
@@ -219,14 +219,14 @@ impl From<FlexAlign> for i32 {
     }
 }
 
-#[derive(Debug)]
+#[derive(Debug, Clone, Copy)]
 pub enum Dimension {
     Auto,
     Point(f32),
     Percent(f32),
 }
 
-#[derive(Debug)]
+#[derive(Debug, Clone)]
 pub enum FlexProperty {
     Wrap(FlexWrap),
     Direction(FlexDirection),
